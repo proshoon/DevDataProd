@@ -18,6 +18,8 @@ Here we visualize data from the mtcars dataset using an interactive R applicatio
 
 The application is found at https://proshoon.shinyapps.io/DevDataProd
 
+The code is found at https://github.com/proshoon/DevDataProd
+
 ## Know Your Data
 
 The data for this presentation resides in R dataset mtcars.
