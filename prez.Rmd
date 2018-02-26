@@ -1,0 +1,51 @@
+---
+title: "DevDataProdPrez"
+author: "PS"
+date: "February 25, 2018"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(datasets)
+```
+
+## Course Project -- Developing Data Products -- mtcars data plotting
+
+This presentation has been prepared to demonstrate how different R tools can be used to prepare a reproducible pitch.
+
+Here we visualize data from the mtcars dataset using an interactive R application developed using shiny. The UI of the application allows the user to enter the number of cylinders of cars for which they would like to visualize mileage data. Based on user selection (number of cylinders), the application shows a histogram of mileage of cars with the same number of cylinders.
+
+The application is found at https://proshoon.shinyapps.io/DevDataProd
+
+## Know Your Data
+
+The data for this presentation resides in R dataset mtcars.
+
+```{r}
+data (mtcars)
+head (mtcars)
+```
+
+This dataset shows mileage (and other) info about cars. 
+
+## Analysis
+
+The processing is fairly simple. The front-end allows the user to choose the number of cylinders (4, 6 or 8) from a picklist with these 3 choices.
+
+Based on the chosen number of cylinders, the system selects the mileage data for cars with the same number of cylinders. Data shown below. 
+
+```{r}
+userInputNoOfCylinders <- sample(c(4,6,8),1) #simulating user i/p -- 4,6 or 8
+mileage <- mtcars$mpg[mtcars$cyl == userInputNoOfCylinders]
+mileage
+```
+
+## Slide with Plot
+
+And finally the system plots a histogram of the data selected based on user input.
+
+```{r}
+hist(mileage, col = 'darkgray', border = 'white')
+```
+
